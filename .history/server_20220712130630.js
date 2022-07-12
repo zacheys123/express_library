@@ -4,14 +4,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
-const expresslayouts = require('express-ejs-layouts');
+const expresslayouts = require('express-layouts');
 const indexrouter = require('./routes/index');
-const authorrouter = require('./routes/authors');
+const authorrouter = require('./routes/author');
 app.set('view engine', 'ejs');
 
 app.set('views', __dirname + '/views');
 app.use('/', indexrouter);
-app.use('/author', authorrouter);
+app.use('/', authorrouter);
 app.set('layout', 'layouts/layout');
 app.use(expresslayouts);
 app.use(express.static('public'));

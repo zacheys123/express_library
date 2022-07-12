@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
-const expresslayouts = require('express-ejs-layouts');
+const expresslayouts = require('express-layouts');
 const indexrouter = require('./routes/index');
 const authorrouter = require('./routes/authors');
 app.set('view engine', 'ejs');
