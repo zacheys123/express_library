@@ -4,9 +4,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
+const multer = require('multer');
 
 const expresslayouts = require('express-ejs-layouts');
-
+const upload = multer({
+	destination,
+});
 // import all our routes pages
 const indexrouter = require('./routes/index');
 const authorrouter = require('./routes/authors');

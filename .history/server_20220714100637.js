@@ -4,9 +4,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
-
+const multer = require('multer');
+const path = require('path');
 const expresslayouts = require('express-ejs-layouts');
-
+const upload = multer({
+	dest: path.join('public', Book.coverimagebase),
+});
 // import all our routes pages
 const indexrouter = require('./routes/index');
 const authorrouter = require('./routes/authors');

@@ -17,11 +17,11 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/new', async (req, res) => {
-	renderNewPage(res, new Book());
+	renderNewPage(res, book);
 });
 
 router.post('/', upload.single('cover'), async (req, res) => {
-	const filename = req.file != null ? req.file.filename : null;
+	const filname = req.file != null ? req.file.filename : null;
 	const book = new Book({
 		title: req.body.title,
 		author: req.body.author,
@@ -34,7 +34,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
 		const newbook = await book.save();
 		res.redirect('books');
 	} catch {
-		renderNewPage(res, book, true);
+		res.render('books/new');
 	}
 });
 

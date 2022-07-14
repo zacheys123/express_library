@@ -34,7 +34,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
 		const newbook = await book.save();
 		res.redirect('books');
 	} catch {
-		renderNewPage(res, book, true);
+		renderNewPage();
 	}
 });
 

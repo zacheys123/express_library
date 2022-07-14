@@ -15,13 +15,17 @@ const upload = multer({
 router.get('/', async (req, res) => {
 	res.render('books/index');
 });
-
 router.get('/new', async (req, res) => {
-	renderNewPage(res, new Book());
+	try {
+		const authors = await Author.find({});
+		const book = new Book();
+		res.render('books/new', { authors: authors, book: book });
+	} catch {
+		res.redirect('/books');
+	}
 });
-
 router.post('/', upload.single('cover'), async (req, res) => {
-	const filename = req.file != null ? req.file.filename : null;
+	const filname = req.file != null ? req.file.filename : null;
 	const book = new Book({
 		title: req.body.title,
 		author: req.body.author,
@@ -34,19 +38,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
 		const newbook = await book.save();
 		res.redirect('books');
 	} catch {
-		renderNewPage(res, book, true);
+		res.
 	}
 });
-
-async function renderNewPage(res, book, haserror = false) {
-	try {
-		const authors = await Author.find({});
-		const params = { authors: authors, book: book };
-		if (haserror) params.errorMessage = 'Error Creating Book';
-		res.render('books/new,params');
-	} catch {
-		res.redirect('/books');
-	}
-}
-
 module.exports = router;
