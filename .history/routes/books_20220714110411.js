@@ -21,13 +21,13 @@ router.get('/new', async (req, res) => {
 });
 
 router.post('/', upload.single('cover'), async (req, res) => {
-	const filename = req.file != null ? req.file.filename : null;
+	// const filename = req.file != null ? req.file.filename : null;
 	const book = new Book({
 		title: req.body.title,
 		author: req.body.author,
 		publishDate: new Date(req.body.publishDate),
 		pageCount: req.body.pageCount,
-		coverImagebase: filename,
+		// coverImagebase: filename,
 		description: req.body.description,
 	});
 	try {

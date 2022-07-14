@@ -6,7 +6,7 @@ const bookschema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	description: {
+	descrption: {
 		type: String,
 	},
 	publishDate: {
@@ -22,10 +22,10 @@ const bookschema = new mongoose.Schema({
 		required: true,
 		default: Date.now(),
 	},
-	coverImage: {
-		type: String,
-		required: true,
-	},
+	// coverImage: {
+	// 	type: String,
+	// 	required: true,
+	// },
 	author: {
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,
