@@ -15,13 +15,5 @@ router.get('/new', async (req, res) => {
 		res.redirect('/books');
 	}
 });
-router.post('/', async (req, res) => {
-	const book = new Book({
-		title: req.body.title,
-		author: req.body.author,
-		publishDate: newDate(req.body.publishDate),
-		pageCount: req.body.pageCount,
-		description: req.body.description,
-	});
-});
+router.post('/', async (req, res) => {});
 module.exports = router;

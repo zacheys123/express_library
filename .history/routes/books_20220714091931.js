@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 		author: req.body.author,
 		publishDate: newDate(req.body.publishDate),
 		pageCount: req.body.pageCount,
-		description: req.body.description,
+		cover,
 	});
 });
 module.exports = router;

@@ -33,4 +33,3 @@ const bookschema = new mongoose.Schema({
 	},
 });
 module.exports = mongoose.model('Book', bookschema);
-module.exports.coverImagebase = coverImagebase;

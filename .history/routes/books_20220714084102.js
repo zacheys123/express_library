@@ -4,7 +4,7 @@ const router = express.Router();
 const Author = require('../models/author');
 const Book = require('../models/books');
 router.get('/', async (req, res) => {
-	res.render('books/index');
+	res.render('/');
 });
 router.get('/new', async (req, res) => {
 	try {
@@ -15,13 +15,5 @@ router.get('/new', async (req, res) => {
 		res.redirect('/books');
 	}
 });
-router.post('/', async (req, res) => {
-	const book = new Book({
-		title: req.body.title,
-		author: req.body.author,
-		publishDate: newDate(req.body.publishDate),
-		pageCount: req.body.pageCount,
-		description: req.body.description,
-	});
-});
+router.post('/', async (req, res) => {});
 module.exports = router;

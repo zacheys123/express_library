@@ -1,0 +1,18 @@
+<div><label for="Name" class="form-group">Title</label>
+<input type="text" class="form-control" name="title" value="<%=book.title%>"></div>
+<div><label for="author">Author</label>
+<select name="author" class="form-control" id="author">
+    <%authors.forEach(author=>{%>
+        <%if(author.id===book.author){%>
+            <option selected label="<%=author.name%>" value="<%=author.id%>">
+                <%}else{%>
+            <option selected label="<%=author.name%>" value="<%=author.id%>">
+                <%}%>
+                    <%})%>
+</select></div>
+<div><label for="publishDate">PublishDate</label>
+
+<input type="date" value="<%=book.publishDate ==null ? '' : book.publishDate.toISOString().split('T')[0]  %>"
+    name="publishDate"></div>
+<div></div>
+

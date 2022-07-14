@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-const coverImagebase = 'upload/bookCovers';
 const bookschema = new mongoose.Schema({
 	title: {
 		type: String,
@@ -32,5 +31,4 @@ const bookschema = new mongoose.Schema({
 		ref: 'Author',
 	},
 });
-module.exports = mongoose.model('Book', bookschema);
-module.exports.coverImagebase = coverImagebase;
+module.exports = mongoose.model('Author', bookschema);
